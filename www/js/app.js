@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 'ng-token-auth'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 'starter.directives', 'ng-token-auth'])
 
-.run(function($ionicPlatform, $http, $auth) {
+.run(['$ionicPlatform', function($ionicPlatform) {
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,7 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     }
   });
 
-})
+}])
 
 .factory('ysHttpInterceptor', function($location, $q) {
   var ysHttpInterceptor = {
@@ -37,35 +37,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
   return ysHttpInterceptor;
 })
 
-.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$authProvider', '$httpProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $sceDelegateProvider) {
 
   // $httpProvider.interceptors.push('ysHttpInterceptor');
+  // $httpProvider.defaults.withCredentials = true;
+  $sceDelegateProvider.resourceUrlWhitelist([ 'self', 'http://192.168.1.71:3000**']);
 
   $authProvider.configure({
-    apiUrl: 'http://yogic-sadhana.com',
-    // storage: 'cookies',
-    // tokenFormat: {
-    //   "access-token": "{{ token }}",
-    //   "token-type":   "Bearer",
-    //   "client":       "{{ clientId }}",
-    //   "expiry":       "{{ expiry }}",
-    //   "uid":          "{{ uid }}"
-    // },
-    handleLoginResponse: function(response) {
-      // console.log(response);
-      return response.data;
-    },
-    handleAccountResponse: function(response) {
-      // console.log(response);
-      return response.data;
-    },
-    handleTokenValidationResponse: function(response) {
-      // console.log(response);
-      return response.data;
+    apiUrl: 'http://192.168.1.71:3000',
+    storage: 'localStorage',
+    tokenFormat: {
+      "access-token": "{{ token }}",
+      "token-type":   "Bearer",
+      "client":       "{{ clientId }}",
+      "expiry":       "{{ expiry }}",
+      "uid":          "{{ uid }}"
     }
+    // handleLoginResponse: function(response) {
+    //   return response.data;
+    // },
+    // handleAccountResponse: function(response) {
+    //   return response.data;
+    // },
+    // handleTokenValidationResponse: function(response) {
+    //   return response.data;
+    // }
   });
 
-  $httpProvider.defaults.withCredentials = true;
+  // $httpProvider.defaults.withCredentials = true;
 
   $stateProvider
 
@@ -80,11 +79,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl',
-    // resolve:{
-    //   auth: function($auth) {
-    //     return $auth.validateUser();
-    //   }
-    // }
+    resolve:{
+      auth: ['$auth', function($auth) {
+        return $auth.validateUser();
+      }]
+    }
   })
 
   .state('app.courses', {
@@ -93,6 +92,46 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
       'menuContent': {
         templateUrl: "templates/courses.html",
         controller: 'CoursesController'
+      }
+    }
+  })
+
+  .state('app.course', {
+    url: "/courses/:courseId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/course.html",
+        controller: 'CourseController'
+      }
+    }
+  })
+
+  .state('app.course.chapter', {
+    url: "/chapters/:chapterId",
+    views: {
+      'menuContent@app': {
+        templateUrl: "templates/chapter.html",
+        controller: 'ChapterController'
+      }
+    }
+  })
+
+  .state('app.course.chapter.theory', {
+    url: "/theories/:theoryId",
+    views: {
+      'menuContent@app': {
+        templateUrl: "templates/theory.html",
+        controller: 'TheoriesController'
+      }
+    }
+  })
+
+  .state('app.course.chapter.theory.media', {
+    url: "/medias/:mediaId",
+    views: {
+      'menuContent@app': {
+        templateUrl: "templates/media.html",
+        controller: 'TheoryMediaController'
       }
     }
   })
@@ -125,8 +164,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
-})
+  $urlRouterProvider.otherwise('/sign_in');
+}])
 
 
 

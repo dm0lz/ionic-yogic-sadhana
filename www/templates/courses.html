@@ -1,10 +1,13 @@
 
 <ion-view view-title="Courses">
   <ion-content>
-    <ul class="list">
-      <li class="item" ng-repeat="course in courses">
+    <ion-list>
+    <ion-item ng-repeat="course in courses" ui-sref="app.course({courseId: course.id})">
         {{course.title}}
-      </li>
-    </ul>
+      </ion-item>
+      <ion-item ng-click="reloadYs()">
+        Refresh
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

@@ -1,0 +1,10 @@
+
+<ion-view view-title="Theory">
+  <ion-content>
+    {{theory}}
+    <ion-item ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
+      {{media.title}}
+
+    </ion-item>
+  </ion-content>
+</ion-view>

@@ -41,10 +41,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
   // $httpProvider.interceptors.push('ysHttpInterceptor');
   // $httpProvider.defaults.withCredentials = true;
-  $sceDelegateProvider.resourceUrlWhitelist([ 'self', 'http://192.168.1.71:3000**']);
+  $sceDelegateProvider.resourceUrlWhitelist([ 'self', 'http://yogic-sadhana.com**']);
 
   $authProvider.configure({
-    apiUrl: 'http://192.168.1.71:3000',
+    apiUrl: 'http://yogic-sadhana.com',
     storage: 'localStorage',
     tokenFormat: {
       "access-token": "{{ token }}",
@@ -126,6 +126,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     }
   })
 
+  .state('app.course.chapter.practice', {
+    url: "/practices/:practiceId",
+    views: {
+      'menuContent@app': {
+        templateUrl: "templates/practice.html",
+        controller: 'PracticesController'
+      }
+    }
+  })
+
   .state('app.course.chapter.theory.media', {
     url: "/medias/:mediaId",
     views: {
@@ -136,33 +146,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.course.chapter.practice.media', {
+    url: "/medias/:mediaId",
     views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
-
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+      'menuContent@app': {
+        templateUrl: "templates/media.html",
+        controller: 'PracticeMediaController'
       }
     }
   });
+
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/sign_in');
 }])

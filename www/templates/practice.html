@@ -1,8 +1,9 @@
 
+
 <ion-view view-title="Medias">
   <ion-content>
     <ion-item class="item item-divider">
-    {{theory.title}}
+    {{practice.title}}
     </ion-item>
     <ion-item ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
       {{media.title}}

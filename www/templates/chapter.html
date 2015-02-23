@@ -1,9 +1,18 @@
 
-<ion-view view-title="Chapter">
+<ion-view view-title="Theories and Practices">
   <ion-content>
-    {{chapter}}
+    {{chapter.title}}
+    <div class="item item-divider">
+      Theories
+    </div>
     <ion-item ng-repeat="theory in theories" ui-sref="app.course.chapter.theory({theoryId: theory.theory.id})">
       {{theory.theory.title}}
+    </ion-item>
+    <div class="item item-divider">
+      Practices
+    </div>
+    <ion-item ng-repeat="practice in practices" ui-sref="app.course.chapter.practice({practiceId: practice.practice.id})">
+      {{practice.practice.title}}
     </ion-item>
   </ion-content>
 </ion-view>

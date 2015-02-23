@@ -1,7 +1,9 @@
 
-<ion-view view-title="Course">
+<ion-view view-title="Chapters">
   <ion-content>
-    {{course}}
+    <ion-item class="item item-divider">
+    {{course.title}}
+    </ion-item>
     <ion-item ng-repeat="chapter in chapters" ui-sref="app.course.chapter({chapterId: chapter.id})">
       {{chapter.title}}
     </ion-item>

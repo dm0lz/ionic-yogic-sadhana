@@ -44,6 +44,16 @@ angular.module('starter.factories', [])
   return Theory;
 }])
 
+.factory('Practice', ['$http', '$auth', function($http, $auth){
+  var Practice = {};
+  Practice.get = function(locale, id, callback){
+    $http.get($auth.apiUrl() + '/' + locale + '/api/v1/practices/' + id).success(function(data){
+      callback(data);
+    });
+  };
+  return Practice;
+}])
+
 .factory('GetTheoryMedia', ['$http', '$auth', function($http, $auth){
   var GetTheoryMedia = {};
   GetTheoryMedia.get = function(locale, id, callback){
@@ -52,4 +62,15 @@ angular.module('starter.factories', [])
     });
   };
   return GetTheoryMedia;
+}])
+
+.factory('GetPracticeMedia', ['$http', '$auth', function($http, $auth){
+  var GetPracticeMedia = {};
+  GetPracticeMedia.get = function(locale, id, callback){
+    $http.get($auth.apiUrl() + '/' + locale + '/api/v1/medias/' + id).success(function(data){
+      callback(data);
+    });
+  };
+  return GetPracticeeMedia;
 }]);
+

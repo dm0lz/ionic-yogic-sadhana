@@ -75,17 +75,6 @@ angular.module('starter.controllers', [])
   // };
 }])
 
-.controller('PlaylistsCtrl', ['$scope', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-}])
-
 .controller('LoginController', ['$scope', '$auth', '$state', '$controller', function($scope, $auth, $state, $controller) {
   $controller('AppCtrl', {$scope: $scope});
 
@@ -94,9 +83,6 @@ angular.module('starter.controllers', [])
   //   $state.go('app.courses');
   // };
 
-}])
-
-.controller('PlaylistCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
 }])
 
 .controller('CoursesController', ['$scope', '$state', '$controller', 'Courses', function($scope, $state, $controller, Courses) {
@@ -150,6 +136,17 @@ angular.module('starter.controllers', [])
 
 }])
 
+.controller('PracticesController', ['$scope', '$stateParams', 'Practice', '$controller', function($scope, $stateParams, Practice, $controller){
+  $controller('AppCtrl', {$scope: $scope});
+
+  var practice_id = $stateParams.practiceId;
+  Practice.get($scope.locale, practice_id, function(data){
+    $scope.practices = data.practices;
+    $scope.practice = data.practice;
+    $scope.medias = data.medias;
+  });
+
+}])
 
 .controller('TheoryMediaController', ['$scope', '$stateParams', 'GetTheoryMedia', '$controller', '$auth', function($scope, $stateParams, GetTheoryMedia, $controller, $auth){
   $controller('AppCtrl', {$scope: $scope});

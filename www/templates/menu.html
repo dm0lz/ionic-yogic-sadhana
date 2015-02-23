@@ -14,7 +14,7 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Yogic-Sadhana</h1>
     </ion-header-bar>
     <ion-content>
         <div class="item item-divider" nav-clear menu-close ng-show="user.signedIn">
@@ -22,25 +22,13 @@
         </div>
       <ion-list>
         <ion-item nav-clear menu-close ng-click="login()" ng-show="!user.signedIn">
-          Login
+          Signin
         </ion-item>
         <ion-item nav-clear menu-close ng-click="signOut()" ng-show="user.signedIn">
-          LogOut
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/playlists">
-          Playlists
+          Signout
         </ion-item>
         <ion-item nav-clear menu-close href="#/app/courses">
           Courses
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/sign_in">
-          SignIn
-        </ion-item>
-        <ion-item nav-clear menu-close href="#/app/courses/1">
-          course
         </ion-item>
       </ion-list>
     </ion-content>

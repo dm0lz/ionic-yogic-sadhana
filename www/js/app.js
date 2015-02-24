@@ -41,10 +41,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.factories', 
 
   // $httpProvider.interceptors.push('ysHttpInterceptor');
   // $httpProvider.defaults.withCredentials = true;
-  $sceDelegateProvider.resourceUrlWhitelist([ 'self', 'http://yogic-sadhana.com**']);
+  $sceDelegateProvider.resourceUrlWhitelist([ 'self', 'https://yogic-sadhana.com**']);
 
   $authProvider.configure({
-    apiUrl: 'http://yogic-sadhana.com',
+    apiUrl: 'https://yogic-sadhana.com',
     storage: 'localStorage',
     tokenFormat: {
       "access-token": "{{ token }}",

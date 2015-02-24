@@ -30,6 +30,12 @@
         <ion-item nav-clear menu-close href="#/app/courses">
           Courses
         </ion-item>
+        <ion-item nav-clear menu-close ng-click="changeLocale('fr')" ng-show="locale == 'en'">
+          Change locale to fr
+        </ion-item>
+        <ion-item nav-clear menu-close ng-click="changeLocale('en')" ng-show="locale == 'fr'">
+          Change locale to en
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

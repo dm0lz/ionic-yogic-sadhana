@@ -2,7 +2,10 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ['$scope', '$state', '$ionicModal', '$timeout', '$auth', '$rootScope', '$http', function($scope, $state, $ionicModal, $timeout, $auth, $rootScope, $http) {
 
-  $scope.locale = "en";
+  $scope.locale = $scope.locale || "en";
+  $scope.changeLocale = function(locale){
+    $scope.locale = locale;
+  };
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {

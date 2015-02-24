@@ -23,11 +23,12 @@ angular.module('starter.directives', [])
         }else{
           el[0].pause();
         }
-        updateButton();
+        toggleButton();
       };
 
-      var updateButton = function(e){
+      var toggleButton = function(e){
         var button = angular.element("button.button.button-full");
+        ($("button.button.button-full").text() === "Play") ? $("button.button.button-full").text("Pause") : $("button.button.button-full").text("Play");
         button.toggleClass("button-balanced button-assertive");
       };
 

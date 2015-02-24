@@ -1,10 +1,15 @@
 
 <ion-view view-title="Media">
   <ion-content>
-    {{media.title}}
-      <section ng-show="media.audio.url">
+    <ion-list>
+    <ion-item class="item item-divider">
+      {{media.title}}
+    </ion-item>
+    <section class="item" ng-show="media.audio.url">
       <audio controls ng-src="{{getMediaUrl(media.audio.url)}}" media:element style="width:100%;height:100%;"> </audio>
-      </section>
+      <button class="button button-full button-balanced" ng-click="togglePlay()"> Play/Pause </button>
+    </section>
+    </ion-list>
   </ion-content>
 </ion-view>
 

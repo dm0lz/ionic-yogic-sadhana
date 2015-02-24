@@ -156,14 +156,17 @@ angular.module('starter.controllers', [])
     $scope.media = data.media;
   });
 
-  $scope.getMediaUrl = function(path){
-    return $auth.apiUrl() + path;
-  };
+}])
 
+.controller('PracticeMediaController', ['$scope', '$stateParams', 'GetPracticeMedia', '$controller', function($scope, $stateParams, GetPracticeMedia, $controller){
+  $controller('BaseController', {$scope: $scope});
+
+  var media_id = $stateParams.mediaId;
+  GetPracticeMedia.get($scope.locale, media_id, function(data){
+    $scope.media = data.media;
+  });
 
 }]);
-
-
 
 
 

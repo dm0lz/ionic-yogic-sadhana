@@ -63,7 +63,7 @@ angular.module('starter.controllers', [])
 
   $scope.reloadYs = function(){
     console.log("reloading");
-    $http.get($auth.apiUrl() + '/' + $scope.locale + '/api/v1/courses').success(function(data){
+    $http.get($auth.apiUrl() + '/' + $scope.locale + '/api/v2/courses').success(function(data){
       $scope.courses = data.courses;
       $scope.i18n_translations = data.i18n_translations;
     });

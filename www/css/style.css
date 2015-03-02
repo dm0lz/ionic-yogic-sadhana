@@ -1,5 +1,11 @@
 /* Empty. Add your own CSS if you like */
 
+
+a:hover{
+  text-decoration: none !important;
+  color: inherit;
+}
+
 .sri_yantra{
   width: 96px;
   margin: 0 auto 10px;

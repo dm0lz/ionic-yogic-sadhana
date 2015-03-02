@@ -1,22 +1,35 @@
 
 <ion-header-bar>
-  <h1 class="title">Login</h1>
+  <h1 class="title login-title">Welcome to Yogic Sadhana</h1>
 </ion-header-bar>
 
 <ion-view view-title="login">
-  <ion-content>
-  <form ng-submit="submitLogin(loginForm)">
-      <div class="list list-inset">
-        <div class="item item-input">
-          <label class="input-label">email</label>
-          <input type="email" name="email" ng-model="loginForm.email" required="required" class="form-control"/>
-        </div>
-        <div class="item item-input">
-          <label class="input-label">password</label>
-          <input type="password" name="password" ng-model="loginForm.password" required="required" class="form-control"/>
-        </div>
-        <button type="submit" class="button button-block button-positive">Sign in</button>
+  <ion-content class="sign-in-content">
+    
+    <div class="center-block sign-in-image">
+      <!--<img ng-src="img/sri_yantra.png" alt="sri_yantra" class="sri_yantra">-->
+      <img class="profile-img" ng-src="img/profile_img.png" alt="">
+    </div>
+
+    <form ng-submit="submitLogin(loginForm)">
+
+      <div class="list list-inset sign-in-list">
+
+        <label class="item item-input">
+          <i class="glyphicon glyphicon-user glyph"></i>
+          <input type="email" name="email" placeholder="Email" ng-model="loginForm.email" required="required" class="" />
+        </label>
+
+        <label class="item item-input">
+          <i class="glyphicon glyphicon-lock glyph"></i>
+          <input type="password" name="password" placeholder="Password" ng-model="loginForm.password" required="required" class=""/>
+        </label>
+
+        <button type="submit" class="button button-block button-positive sign-in-button">Sign in</button>
+
       </div>
+
     </form>
+  
   </ion-content>
 </ion-view>

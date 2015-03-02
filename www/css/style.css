@@ -1,1 +1,55 @@
 /* Empty. Add your own CSS if you like */
+
+.sri_yantra{
+  width: 96px;
+  margin: 0 auto 10px;
+  display: block;
+}
+
+.sign-in-content{
+  /*background: rgb(250, 250, 250);*/
+}
+
+/*
+.yin_yang{
+  width: 72px;
+  margin: 0 auto 10px;
+  display: block;
+}
+*/
+
+.sign-in-header{
+  text-align: center;
+}
+
+.glyph{
+  padding-right: 15px;
+}
+
+.login-title{
+  text-align: center !important;
+}
+
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sign-in-image{
+  margin-top: 3em;
+}
+
+.sign-in-button{
+  margin-top: 2em !important;
+}
+
+.sign-in-list{
+  margin-top: 2em !important;
+  /*background: rgb(250, 250, 250);*/
+}

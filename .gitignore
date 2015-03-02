@@ -7,3 +7,4 @@ plugins/
 my-release-key.keystore
 hooks/.DS_Store
 .DS_Store
+**/.DS_Store

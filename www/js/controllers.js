@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', ['$scope', '$state', '$ionicModal', '$timeout', '$auth', '$rootScope', '$http', function($scope, $state, $ionicModal, $timeout, $auth, $rootScope, $http) {
 
-  $scope.locale = $scope.locale || "en";
+  $scope.locale = $scope.locale || "fr";
   $scope.changeLocale = function(locale){
     $scope.locale = locale;
   };

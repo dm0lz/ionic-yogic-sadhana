@@ -5,8 +5,12 @@
     <ion-item class="item item-divider">
       {{media.title}}
     </ion-item>
-    <section class="item" ng-show="media.audio.url">
+    <section class="item" ng-if="media.audio.url">
       <audio controls ng-src="{{getMediaUrl(media.audio.url)}}" media:element style="width:100%;height:100%;"> </audio>
+      <button class="button button-full button-balanced" ng-click="togglePlay()">Play</button>
+    </section>
+    <section class="item" ng-if="media.video.url">
+      <video controls ng-src="{{getMediaUrl(media.video.url)}}" media:element style="width:100%;height:100%;"> </video>
       <button class="button button-full button-balanced" ng-click="togglePlay()">Play</button>
     </section>
     </ion-list>

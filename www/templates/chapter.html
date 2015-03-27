@@ -1,5 +1,5 @@
 
-<ion-view view-title="Theories and practices">
+<ion-view view-title="Theories et pratiques">
   <ion-content>
     <!-- {{chapter.title}} -->
     <div class="item item-divider">
@@ -9,7 +9,7 @@
       {{theory.theory.title}}
     </ion-item>
     <div class="item item-divider">
-      Practices
+      Pratiques
     </div>
     <ion-item ng-repeat="practice in practices" ui-sref="app.course.chapter.practice({practiceId: practice.practice.id})">
       {{practice.practice.title}}

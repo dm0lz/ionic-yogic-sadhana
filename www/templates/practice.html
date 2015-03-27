@@ -6,7 +6,9 @@
     {{practice.title}}
     </ion-item>
     <ion-item ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
-      {{media.title}}
+    <i ng-if="media.audio.url" class="icon ion-volume-medium"></i>
+    <i ng-if="media.video.url" class="icon ion-videocamera"></i>
+    &nbsp;{{media.title}}&nbsp;({{media.media_type}})
     </ion-item>
   </ion-content>
 </ion-view>

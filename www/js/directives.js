@@ -29,7 +29,7 @@ angular.module('starter.directives', [])
       var toggleButton = function(e){
         var button = angular.element("button.button.button-full");
         ($("button.button.button-full").text() === "Play") ? $("button.button.button-full").text("Pause") : $("button.button.button-full").text("Play");
-        button.toggleClass("button-balanced button-assertive");
+        button.toggleClass("button-balanced-media button-assertive");
       };
 
       scope.getMediaUrl = function(path){

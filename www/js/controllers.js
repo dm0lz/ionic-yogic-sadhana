@@ -76,6 +76,10 @@ angular.module('starter.controllers', [])
   //     $scope.closeLogin();
   //   }, 1000);
   // };
+
+  $scope.get_picture_url = function(url){
+    return "https://yogic-sadhana.com" + media.picture.url
+  };
 }])
 
 .controller('LoginController', ['$scope', '$auth', '$state', '$controller', function($scope, $auth, $state, $controller) {

@@ -1,13 +1,18 @@
 
-<ion-view view-title="Medias">
+<ion-view view-title="Liste des Medias">
   <ion-content>
     <ion-item class="item item-divider">
     {{theory.title}}
     </ion-item>
-    <ion-item ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
-      <i ng-if="media.audio.url" class="icon ion-volume-medium"></i>
-      <i ng-if="media.video.url" class="icon ion-videocamera"></i>
-      &nbsp;{{media.title}}&nbsp;({{media.media_type}})
+    <ion-item  class="item item-thumbnail-left" ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
+      <img ng-if="media.picture.url" ng-src="https://yogic-sadhana.com{{media.picture.url}}" alt=""/>
+      <h2> {{media.title | limitTo:25}} </h2>
+      <div class=" item-button-right">
+        <button class="button">
+          <i ng-if="media.audio.url" class="icon ion-volume-medium"></i>
+          <i ng-if="media.video.url" class="icon ion-videocamera"></i>
+        </button>
+      </div>
     </ion-item>
   </ion-content>
 </ion-view>

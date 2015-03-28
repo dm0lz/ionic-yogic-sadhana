@@ -1,11 +1,16 @@
 
-<ion-view view-title="Chapitres">
+<ion-view view-title="Liste des modules">
   <ion-content>
+
     <ion-item class="item item-divider">
-    {{course.title}}
+      {{course.title}}
     </ion-item>
-    <ion-item ng-repeat="chapter in chapters" ui-sref="app.course.chapter({chapterId: chapter.id})">
-      {{chapter.title}}
+
+    <ion-item class="item item-thumbnail-left" ng-repeat="chapter in chapters" ui-sref="app.course.chapter({chapterId: chapter.id})">
+      <img ng-src="https://yogic-sadhana.com{{chapter.picture.url}}" alt=""/>
+      <h2 class="header-h2"> {{chapter.title}}</h2>
+      <p>{{chapter.description}}</p>
     </ion-item>
+
   </ion-content>
 </ion-view>

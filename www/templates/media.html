@@ -7,14 +7,21 @@
       {{media.title}}
       </ion-item>
 
+      <div style="margin-top: 1em;"> </div>
+
+      <section class="text-center" ng-if="media.picture.url && !media.video.url">
+      <img ng-src="https://yogic-sadhana.com{{media.picture.url}}" alt="image" class="media-picture img-thumbnail-io" style="" />
+      <div style="margin-top: 1em;"> </div>
+      </section>
+
       <section class="item" ng-if="media.audio.url">
         <audio controls ng-src="{{getMediaUrl(media.audio.url)}}" media:element style="width:100%;height:100%;"> </audio>
-        <button class="button button-full button-balanced" ng-click="togglePlay()">Play</button>
+        <button class="button button-full button-balanced-media" ng-click="togglePlay()">Play</button>
       </section>
 
       <section class="item" ng-if="media.video.url">
         <video controls ng-src="{{getMediaUrl(media.video.url)}}" media:element style="width:100%;height:100%;"> </video>
-        <button class="button button-full button-balanced" ng-click="togglePlay()">Play</button>
+        <button class="button button-full button-balanced-media" ng-click="togglePlay()">Play</button>
       </section>
     </ion-list>
   </ion-content>

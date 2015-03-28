@@ -1,6 +1,6 @@
 {
   "name": "ionic-yogic-sadhana",
-  "app_id": "",
+  "app_id": "940b7bc3",
   "gulpStartupTasks": [
     "sass",
     "watch"

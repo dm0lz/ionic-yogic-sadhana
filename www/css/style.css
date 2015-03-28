@@ -36,7 +36,35 @@ a:hover{
   text-align: center !important;
 }
 
+h2.header-h2{
+  margin-top: 1em;
+}
 
+.media-picture{
+  max-height: 150px !important:
+  max-width: 150px !important;
+}
+
+.button-balanced-media{
+  color: white;
+  background-color: #4394AB;
+  border-color: #296A7C;
+  letter-spacing: 0.15em;
+}
+
+.img-thumbnail-io{
+  display: inline-block;
+  max-width: 300px;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
 .profile-img {
   width: 118px;
   height: 118px;

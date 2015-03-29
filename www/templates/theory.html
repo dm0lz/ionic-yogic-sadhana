@@ -7,7 +7,8 @@
     <ion-item  class="item item-thumbnail-left" ng-repeat="media in medias" ui-sref="app.course.chapter.theory.media({mediaId: media.id})">
     <img ng-if="media.picture.url" ng-src="https://yogic-sadhana.com{{media.picture.url}}" alt=""/>
     <img ng-if="!media.picture.url" ng-src="https://yogic-sadhana.com/uploads/medium/picture/130/padmasana.jpg" alt=""/>
-      <h2> {{media.title | limitTo:25}} </h2>
+      <h2 class="header-h2"> {{media.title | limitTo:25}} </h2>
+      <p>{{media.description}}</p>
       <div class=" item-button-right">
         <button class="button">
           <i ng-if="media.audio.url" class="icon ion-volume-medium"></i>

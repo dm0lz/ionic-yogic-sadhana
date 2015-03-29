@@ -55,6 +55,7 @@ h2.header-h2{
 .img-thumbnail-io{
   display: inline-block;
   max-width: 300px;
+  max-height: 300px;
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
